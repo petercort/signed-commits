@@ -1,0 +1,33 @@
+name: 'Signed Commits'
+description: 'Create signed commits through GitHubs GraphQL API.'
+inputs:
+  owner:
+    description: 'Repository owner.'
+    required: true
+    default: ''
+  repostiory: 
+    description: 'Repository name.' 
+    required: true
+    default: ''
+  branch: 
+    description: 'Branch to commit to.' 
+    required: true
+    default: ''
+  commitMessage:
+    description: 'Commit message.' 
+    required: false
+    default: ''
+  updated-files:
+    description: 'New or updated files to commit.'
+    required: false
+    default: []
+  deleted-files: 
+    description: 'Files to remove.'
+    required: false
+    default: []
+outputs:
+  commit-sha:
+    description: 'The SHA hash of the commit'
+runs:
+  using: 'node20'
+  main: 'index.js'
